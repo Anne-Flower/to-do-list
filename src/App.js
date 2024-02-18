@@ -1,8 +1,7 @@
-function App() {
+const App = () => {
   return (
     <div>
-      <h1>YOLO</h1>
-      
+      <h1 className="text-5xl text-orange-500">YOLO</h1>  
     </div>
   );
 }
