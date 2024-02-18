@@ -26,9 +26,16 @@ const App = () => {
         onChange={(e)=>{setTask(e.target.value);}}
         value={task} 
         type="text"
-        placeholder='Create a new "to do"'></input>
+        onKeyUp={(e) => {
+          if (e.key === "Enter") {
+            addTasks();
+          }
+        }}
+        placeholder='Create a new "to do"'>
+        </input>
         <button className="bg-emerald-200 text-emerald-600 font-bold py-4 px-4 rounded-md hover:bg-emerald-500 hover:text-white"
-        onClick={addTasks}>Add Tasks</button>
+        onClick={addTasks}
+        >Add Tasks</button>
       </div>
       <div id="tasks-added-delete" className="">
         {tasks?.length > 0 ? (
