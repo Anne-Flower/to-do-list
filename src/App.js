@@ -25,7 +25,25 @@ const App = () => {
         <button className="bg-emerald-200 text-emerald-600 py-4 px-4 rounded-md hover:bg-emerald-500 hover:text-white"
         onClick={addTasks}>Add Tasks</button>
       </div>
-      <div></div>
+      <div>
+        {tasks?.length > 0 ? (
+          <ul>
+            {
+              tasks.map((task,i) => (
+                <div>
+                  <li>
+                    {task}
+                  </li>
+                </div>
+              ))
+            }
+          </ul>
+        ) : (
+          <div>
+          <p>No task to do, take a break</p>
+          </div>
+        )}
+      </div>
 
 
     </div>
