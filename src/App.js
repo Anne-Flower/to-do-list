@@ -7,11 +7,16 @@ const App = () => {
   const addTasks = () => {
     if(task !== ''){
       setTasks([...tasks,task])
-      setTask('')
+      setTask('') 
     }
   }
-  console.log(tasks);
-
+  
+  const deleteTasks = (i) => {
+    const updatedListTasks = [...tasks]
+    // delete updatedListTasks[i]
+    updatedListTasks.splice(i,1)
+    setTasks(updatedListTasks)
+  } 
 
   return (
     <div id="main-container" className="w-screen h-[1000px] flex flex-col items-center bg-[url('/public/image/backgroundphoto.jpg')]">
@@ -33,10 +38,12 @@ const App = () => {
                 <div className="flex bg-fuchsia-100 m-4 py-4 pl-12 pr-6 rounded-md" key={i}>
                   <li className="self-center font-semibold mr-6 grow">
                     {task}
-                  </li><button className="bg-pink-300 text-pink-700 p-2 mx-4 rounded-md font-bold hover:bg-pink-500 hover:text-white">Delete</button>
+                  </li>
+                  <button
+                  onClick={()=>{deleteTasks(i)}}
+                  className="bg-pink-300 text-pink-700 p-2 mx-4 rounded-md font-bold hover:bg-pink-500 hover:text-white">Delete</button>
                 </div>
-              ))
-            }
+              ))}
           </ul>
         ) : (
           <div>
